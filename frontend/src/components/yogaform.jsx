@@ -1,5 +1,7 @@
 // src/components/YogaAdmissionForm.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 // Mocking a function that simulates the payment process
 const CompletePayment = async () => {
@@ -12,6 +14,8 @@ const CompletePayment = async () => {
 };
 
 const YogaAdmissionForm = () => {
+const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -63,6 +67,10 @@ const YogaAdmissionForm = () => {
       console.error('Error during form submission:', error);
       setPaymentStatus(false); // Simulate payment failure for demo purposes
     }
+    setTimeout(() => {
+        // In a real-world scenario, you would navigate to the payment component here
+        navigate('/payment');
+      }, 2000);
   };
   
 
@@ -159,7 +167,7 @@ const YogaAdmissionForm = () => {
 
       {paymentStatus !== null && (
         <div className={`mt-4 ${paymentStatus ? 'text-green-500' : 'text-red-500'}`}>
-          {paymentStatus ? 'Payment successful!' : 'Payment failed. Please try again.'}
+          {paymentStatus ? 'Sucessfully uploaded!' : 'Please try again.'}
         </div>
       )}
     </form>
