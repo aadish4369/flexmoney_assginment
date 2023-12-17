@@ -1,0 +1,19 @@
+
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - frontend
+    environment:
+      MONGO_URI: "mongodb+srv://aadishskjain:0hxQCGjxvHCdjKG2@cluster0.iebe3fk.mongodb.net/flexmoney?retryWrites=true&w=majority"
