@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 // Mocking a function that simulates the payment process
 const CompletePayment = async () => {
   // Simulate a successful payment after 2 seconds
@@ -14,38 +13,51 @@ const CompletePayment = async () => {
 };
 
 const YogaAdmissionForm = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     age: '',
     selectedBatch: '',
+    batchStartTime: '', // Add batchStartTime field
+    batchEndTime: '', // Add batchEndTime field
   });
 
   const [error, setError] = useState('');
   const [paymentStatus, setPaymentStatus] = useState(null);
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name === 'selectedBatch') {
+      // Extract start and end times from the selected batch
+      const [startTime, endTime] = e.target.value.split('-');
+      setFormData({
+        ...formData,
+        batchStartTime: startTime.trim(),
+        batchEndTime: endTime.trim(),
+        [e.target.name]: e.target.value,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Validate age within the range of 18-65
     const age = parseInt(formData.age, 10);
     if (isNaN(age) || age < 18 || age > 65) {
       setError('Age must be between 18 and 65.');
       return;
     }
-  
+
     // Reset error if age is valid
     setError('');
-  
+
     try {
       // Make a POST request to the Express backend
       const response = await fetch('http://localhost:5000/api/submitForm', {
@@ -55,7 +67,7 @@ const navigate = useNavigate();
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         console.log('Form data sent successfully.');
         setPaymentStatus(true); // Simulate successful payment for demo purposes
@@ -67,12 +79,14 @@ const navigate = useNavigate();
       console.error('Error during form submission:', error);
       setPaymentStatus(false); // Simulate payment failure for demo purposes
     }
+
     setTimeout(() => {
-        // In a real-world scenario, you would navigate to the payment component here
-        navigate('/payment');
-      }, 2000);
+      // In a real-world scenario, you would navigate to the payment component here
+      navigate('/payment');
+    }, 2000);
   };
-  
+
+
 
   return (
     <form className="w-full max-w-lg" onSubmit={handleSubmit}>

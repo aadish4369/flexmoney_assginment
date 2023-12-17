@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const routes = require('./routes/routes.js'); // Import the routes
+const routes = require('./routes/routes'); // Import the routes
+const connectdb = require('./connectdb'); // Import the MongoDB connection
 
 const app = express();
 const PORT = 5000;
