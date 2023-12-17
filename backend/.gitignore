@@ -1,7 +1,5 @@
 # Dependency directories
 /node_modules
-/.pnp
-/.pnp.js
 
 # Optional npm cache directory
 /.npm
@@ -16,11 +14,13 @@
 .DS_Store
 Thumbs.db
 
-# Yarn
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-!.pnp.*
+# Logs
+logs
+*.log
+
+# Testing
+coverage
+.env
+
+# Build files
+/build

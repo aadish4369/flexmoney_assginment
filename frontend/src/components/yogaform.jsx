@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Mocking a function that simulates the payment process
-const CompletePayment = async () => {
+const CompletePayment = async (paymentDetails) => {
   // Simulate a successful payment after 2 seconds
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(true);
+      // Simulate successful payment for demo purposes
+      resolve({ success: true, message: 'Payment successful!' });
     }, 2000);
   });
 };
@@ -20,8 +21,8 @@ const YogaAdmissionForm = () => {
     lastName: '',
     age: '',
     selectedBatch: '',
-    batchStartTime: '', // Add batchStartTime field
-    batchEndTime: '', // Add batchEndTime field
+    batchStartTime: '',
+    batchEndTime: '',
   });
 
   const [error, setError] = useState('');
@@ -29,12 +30,11 @@ const YogaAdmissionForm = () => {
 
   const handleInputChange = (e) => {
     if (e.target.name === 'selectedBatch') {
-      // Extract start and end times from the selected batch
-      const [startTime, endTime] = e.target.value.split('-');
+      const [batchStartTime, batchEndTime] = e.target.value.split('-');
       setFormData({
         ...formData,
-        batchStartTime: startTime.trim(),
-        batchEndTime: endTime.trim(),
+        batchStartTime: batchStartTime.trim(),
+        batchEndTime: batchEndTime.trim(),
         [e.target.name]: e.target.value,
       });
     } else {
@@ -45,8 +45,22 @@ const YogaAdmissionForm = () => {
     }
   };
 
+  const validatePaymentData = () => {
+    if (!formData.batchStartTime || !formData.batchEndTime) {
+      setError('Please select a valid batch.');
+      return false;
+    }
+    // Add other payment data validation logic as needed
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate payment data
+    if (!validatePaymentData()) {
+      return;
+    }
 
     // Validate age within the range of 18-65
     const age = parseInt(formData.age, 10);
@@ -70,14 +84,16 @@ const YogaAdmissionForm = () => {
 
       if (response.ok) {
         console.log('Form data sent successfully.');
-        setPaymentStatus(true); // Simulate successful payment for demo purposes
+        // Simulate payment for demo purposes
+        const paymentResponse = await CompletePayment(formData);
+        setPaymentStatus(paymentResponse.success);
       } else {
         console.error('Failed to send form data.');
-        setPaymentStatus(false); // Simulate payment failure for demo purposes
+        setPaymentStatus(false);
       }
     } catch (error) {
       console.error('Error during form submission:', error);
-      setPaymentStatus(false); // Simulate payment failure for demo purposes
+      setPaymentStatus(false);
     }
 
     setTimeout(() => {
@@ -85,8 +101,6 @@ const YogaAdmissionForm = () => {
       navigate('/payment');
     }, 2000);
   };
-
-
 
   return (
     <form className="w-full max-w-lg" onSubmit={handleSubmit}>

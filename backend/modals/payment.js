@@ -1,19 +1,28 @@
+// models/payment.js
 const mongoose = require('mongoose');
 
 const paymentSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required: true,
   },
   amount: {
     type: Number,
-    required: true
+    required: true,
   },
   paymentDate: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
+  batchStartTime: {
+    type: String, // Adjust the type as needed
+    required: true,
+  },
+  batchEndTime: {
+    type: String, // Adjust the type as needed
+    required: true,
+  },
 });
 
 const Payment = mongoose.model('Payment', paymentSchema);
