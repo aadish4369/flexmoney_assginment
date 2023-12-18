@@ -1,5 +1,6 @@
+Certainly! I've enhanced and formatted your README file for a more organized and visually appealing appearance on GitHub. Feel free to use or modify it as needed:
 
-
+```markdown
 # Yoga Classes Admission Form
 
 This project is a simple admission form for monthly Yoga classes, allowing users to enroll, choose batches, and make monthly payments.
@@ -31,10 +32,7 @@ The Yoga Classes Admission Form is a web application built to facilitate the enr
 - **Batch Shifting:** Participants can move to any other batch in the following months.
 
 ## ER Diagram
-![Image](https://github.com/aadish4369/flexmoney_assginment/blob/main/image.png)
-
-
-
+![ER Diagram](https://github.com/aadish4369/flexmoney_assginment/blob/main/image.png)
 
 ## Getting Started
 
@@ -46,26 +44,26 @@ The Yoga Classes Admission Form is a web application built to facilitate the enr
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/aadish4369/flexmoney_assginment.git
    cd flexmoney_assginment/frontend
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
-3. Run Server:
+
+3. **Run Server:**
 
    ```bash
    npm run dev
    ```
-   
 
-4. Change directory:
+4. **Change directory and Install backend dependencies:**
 
    ```bash
    cd ..
@@ -83,14 +81,16 @@ Adjust environment variables, database configurations, and any other settings as
 Start the application and visit [http://localhost:5706](http://localhost:5706) in your browser.
 
 ```bash
-
+# Additional commands or instructions for usage
 ```
 
 ## Deployment
 
-The application is deployed on AWS Beanstack.
+The application is deployed on AWS Beanstalk.
 
 ## Directory Structure
+
+```plaintext
 flexmoney_assignment/
 |-- frontend/
 |   |-- src/
@@ -111,15 +111,13 @@ flexmoney_assignment/
 |-- docker-compose.yml
 |-- .gitignore
 |-- README.md
-
-
-
+```
 
 ## Built With
 
-- Vite.js (Frontend)
-- Express.js (Backend)
-- MongoDB Atlas (Database)
+- [Vite.js](https://vitejs.dev/) (Frontend)
+- [Express.js](https://expressjs.com/) (Backend)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (Database)
 
 ## License
 
@@ -128,3 +126,4 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Replace placeholder details such as the ER diagram link, Heroku app URL, and any other specific information related to your project. Additionally, add more sections or details as needed based on the actual structure and features of your project.
+```
