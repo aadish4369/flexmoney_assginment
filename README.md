@@ -17,6 +17,7 @@ This project is a simple admission form for monthly Yoga classes, allowing users
 - [Directory Structure](#directory-structure)
 - [Built With](#built-with)
 - [License](#license)
+- [Cloud Architecture](#cloud-architecture)
 
 ## Overview
 
@@ -78,10 +79,6 @@ Adjust environment variables, database configurations, and any other settings as
 
 Start the application and visit [http://localhost:5706](http://localhost:5706) in your browser.
 
-```bash
-# Additional commands or instructions for usage
-```
-
 ## Deployment
 
 The application is deployed on AWS Beanstalk.
@@ -111,6 +108,33 @@ flexmoney_assignment/
 |-- README.md
 ```
 
+
+
+5. **Design Cloud Architecture:**
+
+- Backend: Deployed on Elastic Beanstalk with auto-scaling enabled.
+- Database: Use MongoDB Atlas or another cloud-based database service.
+- Frontend: Serve static files using a CDN or host on a service like AWS S3.
+- Networking: Set up a Virtual Private Cloud (VPC), configure security groups, and use a load balancer.
+
+
+## Cloud Architecture
+
+Create a diagram to visualize the architecture. Here's a textual representation:
+
+```
+Client <---> Load Balancer <---> Elastic Beanstalk (Backend)
+                                ^
+                                |
+                                V
+                             MongoDB Atlas (Database)
+                                ^
+                                |
+                                V
+                             AWS S3/CDN (Frontend)
+```
+
+
 ## Built With
 
 - [Vite.js](https://vitejs.dev/) (Frontend)
@@ -120,8 +144,3 @@ flexmoney_assignment/
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-Replace placeholder details such as the ER diagram link, Heroku app URL, and any other specific information related to your project. Additionally, add more sections or details as needed based on the actual structure and features of your project.
-```
