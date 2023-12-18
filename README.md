@@ -1,6 +1,4 @@
-Certainly! Below is a template for your README file. You can customize it further based on your specific details and any additional features you've implemented.
 
----
 
 # Yoga Classes Admission Form
 
@@ -35,6 +33,7 @@ The Yoga Classes Admission Form is a web application built to facilitate the enr
 ## ER Diagram
 
 
+
 ## Getting Started
 
 ### Prerequisites
@@ -49,13 +48,28 @@ The Yoga Classes Admission Form is a web application built to facilitate the enr
 
    ```bash
    git clone https://github.com/aadish4369/flexmoney_assginment.git
-   cd flexmoney_assginment
+   cd flexmoney_assginment/frontend
    ```
 
 2. Install dependencies:
 
    ```bash
    npm install
+   ```
+3. Run Server:
+
+   ```bash
+   npm run dev
+   ```
+   
+
+4. Change directory:
+
+   ```bash
+   cd ..
+   cd ./backend
+   npm i
+   nodemon server.js
    ```
 
 ## Configuration
@@ -64,25 +78,46 @@ Adjust environment variables, database configurations, and any other settings as
 
 ## Usage
 
-Start the application and visit [http://localhost:3000](http://localhost:3000) in your browser.
+Start the application and visit [http://localhost:5706](http://localhost:5706) in your browser.
 
 ```bash
-npm start
+
 ```
 
 ## Deployment
 
-The application is deployed on [Heroku](your-heroku-app-url).
+The application is deployed on AWS Beanstack.
 
 ## Directory Structure
+flexmoney_assignment/
+|-- frontend/
+|   |-- src/
+|   |   |-- components/
+|   |   |-- views/
+|   |   |-- assets/
+|   |   |-- ...
+|   |-- public/
+|   |-- package.json
+|   |-- vite.config.js
+|   |-- README.md
+|-- backend/
+|   |-- routes/
+|   |-- models/
+|   |-- server.js
+|   |-- package.json
+|   |-- README.md
+|-- docker-compose.yml
+|-- .gitignore
+|-- README.md
 
-Briefly describe the main files and directories in your project.
+
+
 
 ## Built With
 
-- Vue.js (Frontend)
+- Vite.js (Frontend)
 - Express.js (Backend)
-- MongoDB (Database)
+- MongoDB Atlas (Database)
 
 ## License
 
