@@ -31,7 +31,7 @@ The Yoga Classes Admission Form is a web application built to facilitate the enr
 - **Batch Shifting:** Participants can move to any other batch in the following months.
 
 ## ER Diagram
-![ER Diagram]([https://github.com/aadish4369/flexmoney_assginment/blob/main/image.png])
+![Image](https://github.com/aadish4369/flexmoney_assginment/blob/main/image.png)
 
 
 
