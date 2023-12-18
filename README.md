@@ -17,6 +17,7 @@ This project is a simple admission form for monthly Yoga classes, allowing users
 - [Directory Structure](#directory-structure)
 - [Built With](#built-with)
 - [License](#license)
+- [Cloud Architecture](#cloud-architecture)
 
 ## Overview
 
@@ -107,6 +108,33 @@ flexmoney_assignment/
 |-- README.md
 ```
 
+
+
+5. **Design Cloud Architecture:**
+
+- Backend: Deployed on Elastic Beanstalk with auto-scaling enabled.
+- Database: Use MongoDB Atlas or another cloud-based database service.
+- Frontend: Serve static files using a CDN or host on a service like AWS S3.
+- Networking: Set up a Virtual Private Cloud (VPC), configure security groups, and use a load balancer.
+
+
+## Cloud Architecture
+
+Create a diagram to visualize the architecture. Here's a textual representation:
+
+```
+Client <---> Load Balancer <---> Elastic Beanstalk (Backend)
+                                ^
+                                |
+                                V
+                             MongoDB Atlas (Database)
+                                ^
+                                |
+                                V
+                             AWS S3/CDN (Frontend)
+```
+
+
 ## Built With
 
 - [Vite.js](https://vitejs.dev/) (Frontend)
@@ -116,6 +144,3 @@ flexmoney_assignment/
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
