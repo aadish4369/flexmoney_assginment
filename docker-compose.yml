@@ -1,4 +1,3 @@
-
 version: '3.8'
 
 services:
@@ -7,6 +6,10 @@ services:
       context: ./frontend
     ports:
       - "5173:5173"
+    networks:
+      - flexmoney 
+    expose:
+      - '5173'
 
   backend:
     build:
@@ -17,3 +20,8 @@ services:
       - frontend
     environment:
       MONGO_URI: "mongodb+srv://aadishskjain:0hxQCGjxvHCdjKG2@cluster0.iebe3fk.mongodb.net/flexmoney?retryWrites=true&w=majority"
+    networks:
+      - flexmoney
+
+networks:
+  flexmoney:

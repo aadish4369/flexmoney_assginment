@@ -1,13 +1,22 @@
-FROM node:alpine3.19
+# Dockerfile for Vite frontend
 
-WORKDIR /usr/src/app
+# Use an official Node.js image with a specified version as the base image
+FROM node
 
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy all files from the current directory to the working directory
 COPY . .
 
-EXPOSE 5000
+# Expose the port that the Vite development server will run on
+EXPOSE 3000
 
-CMD ["npm", "start"]
+# Define the default command to run the Vite development server
+CMD ["npm", "run", "start"]
