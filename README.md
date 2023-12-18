@@ -1,6 +1,3 @@
-Certainly! Below is a template for your README file. You can customize it further based on your specific details and any additional features you've implemented.
-
----
 
 # Yoga Classes Admission Form
 
@@ -33,7 +30,7 @@ The Yoga Classes Admission Form is a web application built to facilitate the enr
 - **Batch Shifting:** Participants can move to any other batch in the following months.
 
 ## ER Diagram
-
+![ER Diagram](https://github.com/aadish4369/flexmoney_assginment/blob/main/image.png)
 
 ## Getting Started
 
@@ -45,17 +42,32 @@ The Yoga Classes Admission Form is a web application built to facilitate the enr
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/aadish4369/flexmoney_assginment.git
-   cd flexmoney_assginment
+   cd flexmoney_assginment/frontend
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 
    ```bash
    npm install
+   ```
+
+3. **Run Server:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Change directory and Install backend dependencies:**
+
+   ```bash
+   cd ..
+   cd ./backend
+   npm i
+   nodemon server.js
    ```
 
 ## Configuration
@@ -64,25 +76,46 @@ Adjust environment variables, database configurations, and any other settings as
 
 ## Usage
 
-Start the application and visit [http://localhost:3000](http://localhost:3000) in your browser.
+Start the application and visit [http://localhost:5706](http://localhost:5706) in your browser.
 
 ```bash
-npm start
+# Additional commands or instructions for usage
 ```
 
 ## Deployment
 
-The application is deployed on [Heroku](your-heroku-app-url).
+The application is deployed on AWS Beanstalk.
 
 ## Directory Structure
 
-Briefly describe the main files and directories in your project.
+```plaintext
+flexmoney_assignment/
+|-- frontend/
+|   |-- src/
+|   |   |-- components/
+|   |   |-- views/
+|   |   |-- assets/
+|   |   |-- ...
+|   |-- public/
+|   |-- package.json
+|   |-- vite.config.js
+|   |-- README.md
+|-- backend/
+|   |-- routes/
+|   |-- models/
+|   |-- server.js
+|   |-- package.json
+|   |-- README.md
+|-- docker-compose.yml
+|-- .gitignore
+|-- README.md
+```
 
 ## Built With
 
-- Vue.js (Frontend)
-- Express.js (Backend)
-- MongoDB (Database)
+- [Vite.js](https://vitejs.dev/) (Frontend)
+- [Express.js](https://expressjs.com/) (Backend)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (Database)
 
 ## License
 
@@ -91,3 +124,4 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Replace placeholder details such as the ER diagram link, Heroku app URL, and any other specific information related to your project. Additionally, add more sections or details as needed based on the actual structure and features of your project.
+```
