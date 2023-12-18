@@ -78,10 +78,6 @@ Adjust environment variables, database configurations, and any other settings as
 
 Start the application and visit [http://localhost:5706](http://localhost:5706) in your browser.
 
-```bash
-# Additional commands or instructions for usage
-```
-
 ## Deployment
 
 The application is deployed on AWS Beanstalk.
@@ -123,5 +119,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Replace placeholder details such as the ER diagram link, Heroku app URL, and any other specific information related to your project. Additionally, add more sections or details as needed based on the actual structure and features of your project.
-```
