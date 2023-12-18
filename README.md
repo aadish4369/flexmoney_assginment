@@ -1,6 +1,4 @@
-Certainly! I've enhanced and formatted your README file for a more organized and visually appealing appearance on GitHub. Feel free to use or modify it as needed:
 
-```markdown
 # Yoga Classes Admission Form
 
 This project is a simple admission form for monthly Yoga classes, allowing users to enroll, choose batches, and make monthly payments.
