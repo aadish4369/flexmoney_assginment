@@ -228,8 +228,10 @@ Make sure to secure your MongoDB Atlas connection information and any sensitive 
 
 
 
- **Design Cloud Architecture:**
-
+ ##Design Cloud Architecture:
+ Financial Considerations: While considering services like AWS Elastic Beanstalk, CDN, and a VPC provides a robust and scalable solution, it's acknowledged that these 
+           services may come with associated costs. To address financial considerations, the decision was made to containerize the application, providing an alternative and 
+           cost-effective deployment strategy.
 - Backend: Deployed on Elastic Beanstalk with auto-scaling enabled.The backend of the Yoga Class Management System is deployed on Elastic Beanstalk, utilizing AWS's     
            scalable platform-as-a-service (PaaS) offering. Elastic Beanstalk simplifies the deployment and management of applications, allowing for easy scaling based on 
            demand. Auto-scaling is enabled, ensuring the system automatically adjusts resources to handle varying workloads efficiently.
