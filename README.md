@@ -228,7 +228,7 @@ Make sure to secure your MongoDB Atlas connection information and any sensitive 
 
 
 
- ##Design Cloud Architecture:
+ ## Design Cloud Architecture:
  Financial Considerations: While considering services like AWS Elastic Beanstalk, CDN, and a VPC provides a robust and scalable solution, it's acknowledged that these 
            services may come with associated costs. To address financial considerations, the decision was made to containerize the application, providing an alternative and 
            cost-effective deployment strategy.
