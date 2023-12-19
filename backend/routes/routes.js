@@ -5,12 +5,7 @@ const Enrollment = require('../modals/enrollment'); // Import the Enrollment mod
 const Batch = require('../modals/batch'); // Import the Batch model
 const Payment = require('../modals/payment'); // Import the Batch model
 // Mock function simulating payment process
-const CompletePayment = async (user, amount, batchStartTime, batchEndTime) => {
-    // Implement your payment logic here
-    // For demonstration purposes, let's assume the payment is always successful
-    return true;
-  };
-  
+
 
 router.post('/submitForm', async (req, res) => {
   try {
@@ -47,7 +42,6 @@ router.post('/submitForm', async (req, res) => {
     // Save the new enrollment to the database
     await newEnrollment.save();
 
-
     const paymentAmount = 500;
 
     // Create a new payment in the Payment collection
@@ -61,7 +55,6 @@ router.post('/submitForm', async (req, res) => {
     // Save the new payment to the database
     await newPayment.save();
 
-
     // Perform additional actions with the form data or store in other collections
 
     res.json({ message: 'Form data received and saved successfully!' });
@@ -71,17 +64,7 @@ router.post('/submitForm', async (req, res) => {
   }
 });
 
-// Route for Getting Enrollment Details
-router.get('/enrollmentDetails/:userId', async (req, res) => {
-  try {
-    const userId = req.params.userId;
-    // Find enrollment details for the specified user
-    const enrollmentDetails = await Enrollment.find({ user: userId }).populate('user').populate('batch');
-    res.json(enrollmentDetails);
-  } catch (error) {
-    console.error('Error fetching enrollment details:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
+module.exports = router;
+
 
 module.exports = router;

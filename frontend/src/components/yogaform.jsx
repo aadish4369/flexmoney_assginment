@@ -56,22 +56,22 @@ const YogaAdmissionForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Validate payment data
     if (!validatePaymentData()) {
       return;
     }
-
+  
     // Validate age within the range of 18-65
     const age = parseInt(formData.age, 10);
     if (isNaN(age) || age < 18 || age > 65) {
       setError('Age must be between 18 and 65.');
       return;
     }
-
+  
     // Reset error if age is valid
     setError('');
-
+  
     try {
       // Make a POST request to the Express backend
       const response = await fetch('http://localhost:5000/api/submitForm', {
@@ -81,9 +81,14 @@ const YogaAdmissionForm = () => {
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         console.log('Form data sent successfully.');
+  
+        // Optionally, you can parse the response to get additional information from the server
+        const responseData = await response.json();
+        console.log('Server response:', responseData);
+  
         // Simulate payment for demo purposes
         const paymentResponse = await CompletePayment(formData);
         setPaymentStatus(paymentResponse.success);
@@ -95,13 +100,13 @@ const YogaAdmissionForm = () => {
       console.error('Error during form submission:', error);
       setPaymentStatus(false);
     }
-
+  
     setTimeout(() => {
       // In a real-world scenario, you would navigate to the payment component here
       navigate('/payment');
     }, 2000);
   };
-
+  
   return (
     <form className="w-full max-w-lg" onSubmit={handleSubmit}>
       <div className="flex flex-wrap -mx-3 mb-6">
