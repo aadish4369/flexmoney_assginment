@@ -4,7 +4,8 @@ const User = require('../modals/user');
 const Enrollment = require('../modals/enrollment'); // Import the Enrollment model
 const Batch = require('../modals/batch'); // Import the Batch model
 const Payment = require('../modals/payment'); // Import the Batch model
-// Mock function simulating payment process
+const { mockPayment } = require('../controllers/paymentController');
+
 
 
 router.post('/submitForm', async (req, res) => {
@@ -43,7 +44,7 @@ router.post('/submitForm', async (req, res) => {
     await newEnrollment.save();
 
     const paymentAmount = 500;
-
+  
     // Create a new payment in the Payment collection
     const newPayment = new Payment({
       user: newUser._id,
@@ -60,6 +61,19 @@ router.post('/submitForm', async (req, res) => {
     res.json({ message: 'Form data received and saved successfully!' });
   } catch (error) {
     console.error('Error processing form data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+router.get('/getMockData', async (req, res) => {
+  try {
+    // Mock data retrieval process
+    const mockData = await mockPayment(); // Adjust based on your data retrieval logic
+
+    res.json({ mockData });
+  } catch (error) {
+    console.error('Error fetching mock data:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

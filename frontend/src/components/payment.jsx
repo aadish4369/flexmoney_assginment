@@ -4,15 +4,29 @@ const Payment = () => {
   const [paymentStatus, setPaymentStatus] = useState('processing'); // 'processing', 'success', 'failure'
 
   useEffect(() => {
-    // Simulate a delay for processing payment
-    const paymentTimeout = setTimeout(() => {
-      // Simulate a successful payment
-      setPaymentStatus('success');
-    }, 2000);
+    const fetchPaymentStatus = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/getPaymentStatus'); // Replace with your actual backend endpoint
+        const data = await response.json();
 
-    // Clean up the timeout on component unmount or if payment is successful
+        // Check if the payment status is true or false
+        if (data.success) {
+          setPaymentStatus('success');
+        } else {
+          setPaymentStatus('failure');
+        }
+      } catch (error) {
+        console.error('Error fetching payment status:', error);
+        setPaymentStatus('failure');
+      }
+    };
+
+    // Fetch payment status on component mount
+    fetchPaymentStatus();
+
+    // Clean up on component unmount
     return () => {
-      clearTimeout(paymentTimeout);
+      // Additional cleanup if needed
     };
   }, []);
 
